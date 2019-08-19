@@ -90,48 +90,94 @@
 
 // code challenge
 
-function Question (question, answers, correct) {
+// function Question (question, answers, correct) {
+//     this.question = question;
+//     this.answers = answers;
+//     this.correct = correct;
+// };
+
+// Question.prototype.displayQuestion = function() {
+//     console.log(this.question);
+//     for (var i = 0; i < this.answers.length; i++) {
+//         console.log(i + ': ' + this.answers[i])
+//     }
+// }
+
+// Question.prototype.checkAnswer = function (answer) {
+//     if(answer === this.correct) {
+//         console.log('Correct Answer!')
+//     } else {
+//         console.log('Wrong Answer. Try again!')
+//     }
+// }
+
+// var q1 = new Question ("Is Javascript the coolest programming language in the world?",
+//  ['yes', 'no'],
+//   0);
+
+
+// var q2 = new Question ("What is the name of this course\'s teacher?",
+// ['John', 'Micheal', 'Jonas'],
+// 2);
+
+// var q3 = new Question ("What does best describe coding?",
+// ['Boring', 'Hard', 'Fun', 'Tediuos'],
+// 2);
+
+
+// var questions = [q1, q2, q3];
+
+
+// var n = Math.floor(Math.random() * questions.length);
+
+// questions[n].displayQuestion();
+
+// var answer = parseInt(prompt('Please select the correct answer.'));
+
+// questions[n].checkAnswer(answer);
+
+
+
+
+
+
+
+
+function Question (question, answers, correctAnswer) {
     this.question = question;
     this.answers = answers;
-    this.correct = correct;
-};
+    this.correctAnswer = correctAnswer;
+}
 
-Question.prototype.displayQuestion = function() {
-    console.log(this.question);
-    for (var i = 0; i < this.answers.length; i++) {
+Question.prototype.displayQuestion = function () {
+    console.log(this.question)
+    for(var i = 0; i < this.answers.length; i++) {
         console.log(i + ': ' + this.answers[i])
     }
 }
 
-Question.prototype.checkAnswer = function (answer) {
-    if(answer === this.correct) {
-        console.log('Correct Answer!')
+Question.prototype.checkAnswer = function() {
+    if(answer === this.correctAnswer) {
+        console.log('Very nice!')
     } else {
-        console.log('Wrong Answer. Try again!')
+        console.log('ggwp')
     }
 }
 
-var q1 = new Question ("Is Javascript the coolest programming language in the world?",
- ['yes', 'no'],
-  0);
+var q1 = new Question ('This is the first question and 1 is correct', [0, 1, 2], 1);
 
+var q2 = new Question ('This is the second question and 1 is correct', [0, 1, 2], 1);
 
-var q2 = new Question ("What is the name of this course\'s teacher?",
-['John', 'Micheal', 'Jonas'],
-2);
-
-var q3 = new Question ("What does best describe coding?",
-['Boring', 'Hard', 'Fun', 'Tediuos'],
-2);
-
+var q3 = new Question ('This is the third question and 1 is correct', [0, 1, 2], 1);
 
 var questions = [q1, q2, q3];
 
-
 var n = Math.floor(Math.random() * questions.length);
 
-questions[n].displayQuestion();
 
-var answer = parseInt(prompt('Please select the correct answer.'));
+questions[n].displayQuestion();
+console.log()
+
+var answer = parseInt(prompt('Please enter the correct answer!'));
 
 questions[n].checkAnswer(answer);
