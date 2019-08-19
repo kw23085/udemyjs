@@ -41,3 +41,46 @@ johnFriendly('morning');
 
 var emilyFormal = john.presentation.bind(emily, 'formal');
 emilyFormal('afternoon');
+
+
+var kevin = {
+    name: 'kevin',
+    age: 30,
+    job: 'engineer',
+    presentation: function(style, timeOfDay) {
+        if(style === 'formal') {
+            console.log('Good ' + timeOfDay + 'I\'m ' + this.name + 'I\'m ' + this.age + ' years old');
+        } else if (style === 'friendly') {
+            console.log('Hey! What\'s up? I\'m ' + this.name + 'I\'m ' + this.age + ' years old');
+        }
+    }
+};
+
+var leo = {
+    name: 'leo',
+    age: 27,
+    job: 'designer'
+};
+
+var years = [1990, 1965, 1937, 2005, 1998];
+
+function arrayCalc(arr, fn) {
+    var arrRes = [];
+    for (var i = 0; i < arr.length; i++) {
+        arrRes.push(fn(arr[i]));
+    }
+    return arrRes;
+}
+
+function calculateAge(el) {
+    return 2016 - el;
+}
+
+function inFullAge(limit, el) {
+    return el >= limit;
+}
+
+var ages = arrayCalc(years, calculateAge);
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+console.log(ages);
+console.log(fullJapan);
