@@ -84,3 +84,28 @@ var ages = arrayCalc(years, calculateAge);
 var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
+
+
+
+
+// code challenge
+
+function Question (question, answers, correct) {
+    this.question = question;
+    this.answers = answers;
+    this.correct = correct;
+};
+
+var q1 = new Question ("Is Javascript the coolest programming language in the world?",
+ ['yes', 'no'],
+  0);
+
+
+var q2 = new Question ("What is the name of this course\'s teacher?",
+['John', 'Micheal', 'Jonas'],
+2);
+
+var q3 = new Question ("What does best describe coding?",
+['Boring', 'Hard', 'Fun', 'Tediuos'],
+2);
+
