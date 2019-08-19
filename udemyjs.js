@@ -180,4 +180,4 @@ console.log()
 
 var answer = parseInt(prompt('Please enter the correct answer!'));
 
-questions[n].checkAnswer(answer);
+questions[n].checkAnswer(answer); gg
