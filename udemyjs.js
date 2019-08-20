@@ -152,12 +152,22 @@ Questions.prototype.displayQuestions = function() {
     }
 }
 
-Questions.prototype.checkAnswer = function(something) {
-    if(something === this.correctAnswer) {
+Questions.prototype.checkAnswer = function(ans, callback) {
+var sc;
+
+    if(ans === this.correctAnswer) {
         console.log('wow you good good')
+        sc =callback(true);
     } else {
         console.log('ggwp')
+        sc = callback(false);
     }
+    this.displayScore(sc);
+}
+
+Questions.prototype.displayScore = function(score) {
+    console.log('Your current score is: ' + score);
+    console.log('--------------------------------')
 }
 
 var q1 = new Questions('1 is the right answer', [1, 2, 3], 1);
@@ -172,9 +182,11 @@ function score() {
         if(correct) {
             sc++;
         }
-        return score;
+        return sc;
     }
 }
+
+var keepScore = score();
 
 
 function nextQuestion() {
@@ -185,7 +197,7 @@ function nextQuestion() {
 
 
     if(answer !== 'exit') {
-        questions[n].checkAnswer(parseInt(answer));
+        questions[n].checkAnswer(parseInt(answer), keepScore);
 
         nextQuestion();
     }
