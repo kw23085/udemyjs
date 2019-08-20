@@ -166,10 +166,29 @@ var q3 = new Questions('3 is the right answer', [1, 2, 3], 3);
 
 var questions = [q1, q2, q3];
 
-var n = Math.floor(Math.random() * questions.length);
+function score() {
+    var sc = 0;
+    return function(correct) {
+        if(correct) {
+            sc++;
+        }
+        return score;
+    }
+}
 
-questions[n].displayQuestions();
 
-var answer = parseInt(prompt('Please enter the correct answer'));
+function nextQuestion() {
 
-questions[n].checkAnswer(answer);
+    var n = Math.floor(Math.random() * questions.length);
+    questions[n].displayQuestions();
+    var answer = prompt('Please enter the correct answer');
+
+
+    if(answer !== 'exit') {
+        questions[n].checkAnswer(parseInt(answer));
+
+        nextQuestion();
+    }
+}
+
+nextQuestion();
