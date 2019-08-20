@@ -139,45 +139,26 @@
 
 
 
-
-
-
-
-function Question (question, answers, correctAnswer) {
+function Questions (question, answers, correctAnswer) {
     this.question = question;
     this.answers = answers;
     this.correctAnswer = correctAnswer;
 }
 
-Question.prototype.displayQuestion = function () {
-    console.log(this.question)
+Questions.prototype.displayQuestions = function() {
+    console.log(this.question);
     for(var i = 0; i < this.answers.length; i++) {
-        console.log(i + ': ' + this.answers[i])
+        console.log(i + ": " + this.answers[i]);
     }
 }
 
-Question.prototype.checkAnswer = function() {
-    if(answer === this.correctAnswer) {
-        console.log('Very nice!')
-    } else {
-        console.log('ggwp')
-    }
-}
-
-var q1 = new Question ('This is the first question and 1 is correct', [0, 1, 2], 1);
-
-var q2 = new Question ('This is the second question and 1 is correct', [0, 1, 2], 1);
-
-var q3 = new Question ('This is the third question and 1 is correct', [0, 1, 2], 1);
+var q1 = new Questions('1 is the right answer', [1, 2, 3], 1);
+var q2 = new Questions('2 is the right answer', [1, 2, 3], 2);
+var q3 = new Questions('3 is the right answer', [1, 2, 3], 3);
 
 var questions = [q1, q2, q3];
 
 var n = Math.floor(Math.random() * questions.length);
 
+questions[n].displayQuestions();
 
-questions[n].displayQuestion();
-console.log()
-
-var answer = parseInt(prompt('Please enter the correct answer!'));
-
-questions[n].checkAnswer(answer);
