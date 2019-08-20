@@ -152,6 +152,14 @@ Questions.prototype.displayQuestions = function() {
     }
 }
 
+Questions.prototype.checkAnswer = function(something) {
+    if(something === this.correctAnswer) {
+        console.log('wow you good good')
+    } else {
+        console.log('ggwp')
+    }
+}
+
 var q1 = new Questions('1 is the right answer', [1, 2, 3], 1);
 var q2 = new Questions('2 is the right answer', [1, 2, 3], 2);
 var q3 = new Questions('3 is the right answer', [1, 2, 3], 3);
@@ -162,3 +170,6 @@ var n = Math.floor(Math.random() * questions.length);
 
 questions[n].displayQuestions();
 
+var answer = parseInt(prompt('Please enter the correct answer'));
+
+questions[n].checkAnswer(answer);
